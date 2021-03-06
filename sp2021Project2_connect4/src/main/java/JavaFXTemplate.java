@@ -1,6 +1,7 @@
 import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
+import javafx.geometry.Pos;
 import javafx.scene.Scene;
 
 import javafx.scene.control.Button;
@@ -38,11 +39,14 @@ public class JavaFXTemplate extends Application {
 	public Scene welcomeScene(Stage primaryStage) {
 		// Text object to create a title
         Text welcome_text = new Text("Welcome to Connect Four");
+        welcome_text.setStyle("-fx-font-size: 32;");
 
         // will start the game when clicked
         // can probably make this look better but that is a later
         // thing ig
         Button start = new Button("Start Game");
+        start.setPrefSize(200, 200);
+        start.setStyle("-fx-background-color: white;");
         
         // handler to switch scenes and start game
         // lilly note: should this be in main class...? maybe w getButton() function?
@@ -50,7 +54,8 @@ public class JavaFXTemplate extends Application {
         start.setOnAction(e -> primaryStage.setScene(gameScene(primaryStage)));
         // placing all elements into a BorderPane object
         BorderPane welcome = new BorderPane(start, welcome_text, null, null, null);
-        welcome.setStyle("-fx-background-color: lightGreen");
+        welcome.setAlignment(welcome_text, Pos.CENTER);
+        welcome.setStyle("-fx-background-color: plum");
         return new Scene(welcome, 900, 900);
         
 	}
